@@ -1,4 +1,4 @@
-package ru.geekbrains.java2.lesson1; /**
+package lesson1; /**
  */
 public class Duck extends Animal implements Swimable {
     public Duck(String name) {

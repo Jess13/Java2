@@ -1,4 +1,4 @@
-package ru.geekbrains.java2.lesson1; /**
+package lesson1; /**
  */
 public class Horse extends Animal implements Swimable, Jumpable {
     public Horse(String name) {

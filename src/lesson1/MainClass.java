@@ -1,4 +1,4 @@
-package ru.geekbrains.java2.lesson1;
+package lesson1;
 public class MainClass {
     public static void main(String[] args) {
         Swimable[] an = new Swimable[5];

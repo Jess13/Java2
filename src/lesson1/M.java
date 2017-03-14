@@ -1,4 +1,4 @@
-package ru.geekbrains.java2.lesson1;
+package lesson1;
 
 import java.util.Arrays;
 

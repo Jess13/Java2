@@ -1,4 +1,4 @@
-package ru.geekbrains.java2.lesson1; /**
+package lesson1; /**
  */
 public class Human extends Animal implements Swimable, Jumpable {
     private float endurance;
@@ -8,7 +8,7 @@ public class Human extends Animal implements Swimable, Jumpable {
         this.name = name;
         animType = "ru.geekbrains.java2.lesson1.Human";
         onDistance = true;
-        maxRunDistance = 5000;
+        maxRunDistance = 5000   ;
         endurance = 5000;
     }
 
