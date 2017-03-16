@@ -7,13 +7,6 @@ import java.util.Scanner;
  */
 public class PlayChess {
 
-//    float abs(float i) {
-//        return (i<0) ? -i : i;
-//    }
-
-//    char[] x_field = new char[8];
-//    int[] y_field = new int[8];
-
     private Castle castle = new Castle();
     private Knight knight = new Knight();
     private Bishop bishop = new Bishop();
@@ -28,19 +21,17 @@ public class PlayChess {
     void playerTurn() {
         System.out.println("Выбирете фигуру: 1-Castle, 2-Knight, 3-Bishop");
         int numfig = sc.nextInt();
-        System.out.println("Выберите координаты начала хода, введя букву и цифру в каждой строке");
-        int x1 = sc.nextInt();
-        int y1 = sc.nextInt();
-        System.out.println("Выберите координаты конца хода, введя букву и цифру в каждой строке");
-        int x2 = sc.nextInt();
-        int y2 = sc.nextInt();
-        sc.close();
+        System.out.println("Выберите координаты начала хода, введя малую лат. букву и цифру в одном слове");
 
-//        for (int i = 0; i < 7; i++) {
-//            for (int j = 0; j < 7; j++) {
-//                field[i][i] = 1;
-//            }
-//        }
+        String c1 = sc.next();
+        int y1 = c1.charAt(0)-96;
+        int x1 = c1.charAt(1)-48;
+        System.out.println("Выберите координаты конечного хода, введя малую лат. букву и цифру в одном слове");
+
+        String c2 = sc.next();
+        int y2 = c2.charAt(0)-96;
+        int x2 = c2.charAt(1)-48;
+        sc.close();
 
         if (numfig == 1) { boolean cas = castle.isRightMove(x1, y1, x2, y2);
             System.out.println("Ход был castle " +  cas); }
