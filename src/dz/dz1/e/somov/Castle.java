@@ -1,0 +1,14 @@
+package dz.dz1.e.somov;
+
+/**
+ * Created by Jess on 16.03.2017.
+ */
+public class Castle implements ChessPiece {
+
+    public boolean isRightMove(int x1, int y1, int x2, int y2) {
+
+        if (x1 == x2 || y1 == y2) return true;
+
+        return false;
+    }
+}
