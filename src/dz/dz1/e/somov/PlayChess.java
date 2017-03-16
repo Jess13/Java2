@@ -7,11 +7,21 @@ import java.util.Scanner;
  */
 public class PlayChess {
 
-    char[] x_field = new char[8];
-    int[] y_field = new int[8];
+//    float abs(float i) {
+//        return (i<0) ? -i : i;
+//    }
+
+//    char[] x_field = new char[8];
+//    int[] y_field = new int[8];
 
     private Castle castle = new Castle();
     private Knight knight = new Knight();
+    private Bishop bishop = new Bishop();
+
+    static boolean outOfField(int x1, int y1, int x2, int y2) {
+        if ((x1>=1 && x1<=8) && (y1>=1 && y1<=8) && (x2>=1 && x2<=8) && (y2>=1 && y2<=8)) return true;
+        return false;
+    }
 
     static Scanner sc = new Scanner(System.in);
 
@@ -33,9 +43,10 @@ public class PlayChess {
 //        }
 
         if (numfig == 1) { boolean cas = castle.isRightMove(x1, y1, x2, y2);
-            System.out.println("Ход был " +  cas); }
-        if (numfig == 2); { boolean kng = knight.isRightMove(x1, y1, x2, y2);
-            System.out.println("Ход был " +  kng); }
-        //if (numfig == 3);
+            System.out.println("Ход был castle " +  cas); }
+        if (numfig == 2) { boolean kng = knight.isRightMove(x1, y1, x2, y2);
+            System.out.println("Ход был knight " +  kng); }
+        if (numfig == 3) { boolean bsp = bishop.isRightMove(x1, y1, x2, y2);
+            System.out.println("Ход был bishop " +  bsp); }
     }
 }
