@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * Created by Jess on 16.03.2017.
  */
-public class PlayChess {
+public class  PlayChess {
 
     private Castle castle = new Castle();
     private Knight knight = new Knight();
