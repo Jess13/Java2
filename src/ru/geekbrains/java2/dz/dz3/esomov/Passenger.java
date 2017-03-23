@@ -5,18 +5,18 @@ package ru.geekbrains.java2.dz.dz3.esomov;
  */
 public class Passenger {
     private String name;
-    //private String passport;
+    private String passport;
 
-    Passenger(String name) {
+    Passenger(String name, String passport) {
         this.name = name;
-        //this.passport = passport;
+        this.passport = passport;
     }
 
     public String getName() {
         return this.name;
     }
 
-//    public String getPassport() {
-//        return this.passport;
-//    }
+    public String getPassport() {
+        return this.passport;
+    }
 }
