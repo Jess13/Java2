@@ -15,12 +15,12 @@ public class SearchFlight {
         List<Flight> f = fillTheFlight(); //Произвольно созданный список рейсов
         //p.sort(Collections.reverseOrder());
         //Вывод всех списков пассажиров и рейсов
-        System.out.println("СПИСОК 1");
-        for (Passenger ps1 : p1) System.out.print(ps1.getName()+" "+ps1.getPassport()+" ");
-        System.out.println();
-        System.out.println("СПИСОК 2");
-        for (Passenger ps2 : p2) System.out.print(ps2.getName()+" "+ps2.getPassport()+" ");
-        System.out.println();
+        System.out.println("СПИСОК 1"); int i1=0;
+        for (Passenger ps1 : p1) { i1++; System.out.print(ps1.getName()+" "+ps1.getPassport()+" "); }
+        System.out.println("|| Кол-во пассажиров - "+i1);
+        System.out.println("СПИСОК 2"); int i2=0;
+        for (Passenger ps2 : p2) { i2++; System.out.print(ps2.getName()+" "+ps2.getPassport()+" "); }
+        System.out.println("|| Кол-во пассажиров - "+i2);
         System.out.println("РЕЙСЫ");
         for (Flight fl : f) System.out.print(fl.getFlightNum()+" ");
         System.out.println();
