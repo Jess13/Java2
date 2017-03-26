@@ -12,6 +12,7 @@ import java.io.*;
  */
 class MyWindow extends JFrame{
 
+    private static String FileBD = "src\\ru\\geekbrains\\java2\\dz\\dz4\\esomov\\History.txt";
     private static JTextArea ta;
     private static JTextField t;
 
@@ -76,7 +77,7 @@ class MyWindow extends JFrame{
     }
 
     private void readChat() throws IOException {
-        FileReader fileReader = new FileReader("src\\ru\\geekbrains\\java2\\dz\\dz4\\esomov\\History.txt");
+        FileReader fileReader = new FileReader(FileBD);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String inputFile = "";
         String textFieldReadable = bufferedReader.readLine();
@@ -95,7 +96,7 @@ class MyWindow extends JFrame{
     }
 
     private void writeChat(String data) {
-        File file = new File("src\\ru\\geekbrains\\java2\\dz\\dz4\\esomov\\History.txt");
+        File file = new File(FileBD);
         FileWriter fr = null;
         try {
             fr = new FileWriter(file, true);
