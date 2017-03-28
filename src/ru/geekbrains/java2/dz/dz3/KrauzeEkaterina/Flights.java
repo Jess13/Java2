@@ -23,7 +23,7 @@ public class Flights {
     }
 
     private static Map<String, List<Passenger>> readPassengers() {
-        System.out.println("Name Passport Flight");
+            System.out.println("Name Passport Flight");
         Scanner scanner = new Scanner(System.in);
         Map<String, List<Passenger>> flights = new TreeMap<>();
         while (true) {
