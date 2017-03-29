@@ -35,12 +35,8 @@ class MyWindow extends JFrame{
         JButton snd = new JButton("Send");
         JButton upd = new JButton("Update");
 
-        t.addActionListener(new ActionListener() { //Обработка нажатия клавиши Enter
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                sendText();
-            }
-        });
+        //Обработка нажатия клавиши Enter
+        t.addActionListener(e -> sendText());
         snd.addActionListener(new ActionListener() { //Обработка нажатия клавиши Send
             @Override
             public void actionPerformed(ActionEvent e) {
