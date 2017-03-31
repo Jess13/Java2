@@ -26,12 +26,18 @@ public class Main {
             System.out.println("subMain1 completed");
         });
         subMain1.start();
+        if (subMain1.isAlive()) {
+            try {subMain1.join();} catch (InterruptedException e) { e.printStackTrace(); }
+        }
 
         Thread subMain2 = new Thread(() -> { //Рассчет поделенного массива в отдельном потоке
             for (int i=1; i<arr2.length; i++) arr2[i] = (float)(arr2[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
             System.out.println("subMain2 completed");
         });
         subMain2.start();
+        if (subMain2.isAlive()) {
+            try {subMain2.join();} catch (InterruptedException e) { e.printStackTrace(); }
+        }
 
         System.arraycopy(arr1, 0, arr, 0, H); //Склеивание массива
         System.arraycopy(arr2, 0, arr, H, H);
