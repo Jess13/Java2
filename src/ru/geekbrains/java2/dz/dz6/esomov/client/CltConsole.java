@@ -18,9 +18,17 @@ public class CltConsole {
             while (true) {
                 if (in.hasNext()) {
                     String msg = in.nextLine();
-                    if (msg.equalsIgnoreCase("end session")) break;
                     System.out.println("Server: " + msg);
+                    if (msg.equalsIgnoreCase("END")) break;
                 }
+            }
+            try {
+                System.out.println("Client disconnected");
+                sock.close();
+                in.close();
+                System.exit(0);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
         srvThread.start();
@@ -29,11 +37,15 @@ public class CltConsole {
         while (true) {
             if (inp.hasNext()) {
                 String msg = inp.nextLine();
-                assert out != null;
-                System.out.println("Mess: " + msg);
                 out.println(msg);
                 out.flush();
+                if (msg.equalsIgnoreCase("END")) break;
             }
         }
+//        out.flush();
+//        out.close();
+//        in.close();
+//        inp.close();
+//        sock.close();
     }
 }
