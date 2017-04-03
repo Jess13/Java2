@@ -17,13 +17,15 @@ public class SrvConsole {
         PrintWriter out = new PrintWriter(soc.getOutputStream());
         System.out.println("Client connected");
         Thread cltTread = new Thread(()-> {
+            while (true) {
                 if (in.hasNext()) {
                     String msg = in.nextLine();
                     System.out.println("Server: " + msg);
                     out.println("Server: " + msg);
                     out.flush();
+                    if(msg.equalsIgnoreCase("END")) break;
                 }
-
+            }
             try {
                 System.out.println("Client disconnected");
                 soc.close();
