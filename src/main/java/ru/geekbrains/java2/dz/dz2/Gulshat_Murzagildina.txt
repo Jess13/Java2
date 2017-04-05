@@ -1,0 +1,51 @@
+Java_2:Урок_2
+
+Д/З_2 :Мурзагильдина Гульшат
+
+// Написать метод, на вход которого подаётся такая строка("1 3 1 2\n2 3 2 2\n5 6 7 1\n3 3 1 0"), 
+// метод должен преобразовать строку вдвумерный массив типа String[][];
+
+// Преобразовать все элементы массива в числа типа int, просуммировать, поделить полученную
+// сумму на 2, и вернуть результат;
+
+// В методе main необходимо вызвать полученный метод, обработать возможные исключения и
+// вывести результат расчета.
+
+public class Main{
+    public static void main(String[] args) {
+        try {
+            String str = "1 3 1 2\n2 3 2 2\n5 6 7 1\n3 3 1 0";
+            System.out.println(result(str));
+        }
+        catch (NumberFormatException e)
+        {
+            System.out.println("В массиве присутствует символ или слово");
+        }
+        catch (ArrayIndexOutOfBoundsException e)
+        {
+            System.out.println("Размерность не соответствует 4x4");
+        }
+    }
+
+    public static int result(String str) throws NumberFormatException, ArrayIndexOutOfBoundsException {
+        String[] strings = str.split("\\W+");
+        String[][] array = new String[4][4];
+        int pos = 0;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                array[i][j] = strings[pos++];
+            }
+        }
+
+        int sum = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            for  (int j = 0; j < array.length; j++) {
+                sum += Integer.parseInt(array[i][j]);
+            }
+            if (i == 3)
+                sum /= 2;
+        }
+        return sum;
+    }
+}
