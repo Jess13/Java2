@@ -31,7 +31,7 @@ public class Icons2 extends JFrame {
         panel.add(button2);
 
         JButton button3 = new JButton();
-        ImageIcon icon3 = new ImageIcon("src\\Tests\\Icons2\\icon3.png");
+        ImageIcon icon3 = new ImageIcon("src\\main\\java\\Tests\\Icons2\\icon3.png");
         button3.setIcon(icon3);
         panel.add(button3);
 
@@ -44,6 +44,7 @@ public class Icons2 extends JFrame {
 
     protected static ImageIcon createIcon(String path) {
         URL imgURL = Icons2.class.getResource(path);
+        System.out.println(imgURL);
         if (imgURL != null) {
             return new ImageIcon(imgURL);
         } else {
