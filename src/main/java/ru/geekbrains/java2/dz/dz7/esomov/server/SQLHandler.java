@@ -47,15 +47,14 @@ public class SQLHandler {
     }
 
     public static int findLog(String Log) {
-        int i = 0;
+        int i = 0; //Кол-во найденных записей Login
         try {
             String SQL_FIND_LOGIN = "SELECT login FROM main where login = '" + Log + "'";
             Statement statement = conn.createStatement();
             ResultSet resultSet = statement.executeQuery(SQL_FIND_LOGIN);
             while (resultSet.next()) {
                 String login = resultSet.getString("login");
-                System.out.println(login);
-                if (login.equals("")) i++;
+                if (!login.equals("")) i++;
             }
         } catch (SQLException e) {
                 System.out.println("SQL Query Error");
@@ -67,8 +66,7 @@ public class SQLHandler {
         connect();
         String[] u =  chgPass.split("\t");
         if (!u[0].equals("") && !u[1].equals("")) {
-            int flag = findLog(u[0]);
-            System.out.println(flag);
+            int flag = findLog(u[0]); //Если flag=0 то не обновлять базу
             if (flag != 0) {
                 String SQL_UPDATE_PASS = "UPDATE main SET password = ? WHERE login = ?";
 

@@ -44,7 +44,7 @@ public class DateBase {
         }
     }
 
-    public void updUser(Connection conn) {
+    public void updUser(Connection conn) { //Смена пароля по логину
         try {
             PreparedStatement st = conn.prepareStatement(SQL_UPDATE_USER);
             st.setString(1,"5555555555");
@@ -55,7 +55,7 @@ public class DateBase {
         }
     }
 
-    public void addUser(Connection conn){
+    public void addUser(Connection conn){ //Добавление пользователя
         try {
             PreparedStatement st = conn.prepareStatement(SQL_INSERT_USER);
             st.setString(1,"log5");
