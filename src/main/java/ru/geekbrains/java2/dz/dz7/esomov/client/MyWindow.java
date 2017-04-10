@@ -40,8 +40,9 @@ public class MyWindow extends JFrame{
         JPanel bottomPanel = new JPanel(new BorderLayout());
         JPanel topPanel = new JPanel(new BorderLayout());
         JPanel authPanel = new JPanel(new GridLayout());
-        JPanel registPanel = new JPanel(new GridLayout());
-
+        JPanel regPanel = new JPanel(new GridLayout());
+        JPanel chgPassPanel = new JPanel(new GridLayout());
+        //Форма авторизации
         JTextField jtfLogin = new JTextField("Login");
         JTextField jtfPass = new JTextField("Password");
         JButton jbAuth = new JButton("Auth");
@@ -49,23 +50,41 @@ public class MyWindow extends JFrame{
         authPanel.add(jtfPass);
         authPanel.add(jbAuth);
         jtfLogin.setToolTipText("Login");
-        JTextField regLogin = new JTextField("Login");
-        JTextField regPass = new JTextField("Password");
-        JTextField regNick = new JTextField("NickName");
-        JButton jbSingUp = new JButton("Sing Up");
-        registPanel.add(regLogin);
-        registPanel.add(regPass);
-        registPanel.add(regNick);
-        registPanel.add(jbSingUp);
+        //Форма регистрации
+        JTextField tfRegLogin = new JTextField("Login");
+        JTextField tfRegPass = new JTextField("Password");
+        JTextField tfRegNick = new JTextField("NickName");
+        JButton buttonReg = new JButton("Sing Up");
+        regPanel.add(tfRegLogin);
+        regPanel.add(tfRegPass);
+        regPanel.add(tfRegNick);
+        regPanel.add(buttonReg);
+        //Форма смены пароля
+        JTextField tfChgLogin = new JTextField("Login");
+        JTextField tfChgPass = new JTextField("Change Password");
+        JButton buttonChgPass = new JButton("ChangePass");
+        chgPassPanel.add(tfChgLogin);
+        chgPassPanel.add(tfChgPass);
+        chgPassPanel.add(buttonChgPass);
+
         add(topPanel, BorderLayout.NORTH);
-        topPanel.add(registPanel, BorderLayout.NORTH);
+        topPanel.add(regPanel, BorderLayout.NORTH);
+        topPanel.add(chgPassPanel, BorderLayout.CENTER);
         topPanel.add(authPanel, BorderLayout.SOUTH);
 
-        jbSingUp.addActionListener(new ActionListener() {
+        buttonChgPass.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String registReq = regLogin.getText() + "\t" + regPass.getText() + "\t" + regNick.getText();
-                SQLHandler.addNewUser(registReq);
+                String updReq = tfChgLogin.getText() + "\t" + tfChgPass.getText();
+                SQLHandler.updPassword(updReq);
+            }
+        });
+
+        buttonReg.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String regRequest = tfRegLogin.getText() + "\t" + tfRegPass.getText() + "\t" + tfRegNick.getText();
+                SQLHandler.addNewUser(regRequest);
             }
         });
 

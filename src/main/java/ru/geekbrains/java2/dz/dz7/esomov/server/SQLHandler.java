@@ -46,6 +46,47 @@ public class SQLHandler {
         return w;
     }
 
+    public static int findLog(String Log) {
+        int i = 0;
+        try {
+            String SQL_FIND_LOGIN = "SELECT login FROM main where login = '" + Log + "'";
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery(SQL_FIND_LOGIN);
+            while (resultSet.next()) {
+                String login = resultSet.getString("login");
+                System.out.println(login);
+                if (login.equals("")) i++;
+            }
+        } catch (SQLException e) {
+                System.out.println("SQL Query Error");
+            }
+        return i;
+    }
+
+    public static void updPassword(String chgPass) {
+        connect();
+        String[] u =  chgPass.split("\t");
+        if (!u[0].equals("") && !u[1].equals("")) {
+            int flag = findLog(u[0]);
+            System.out.println(flag);
+            if (flag != 0) {
+                String SQL_UPDATE_PASS = "UPDATE main SET password = ? WHERE login = ?";
+
+                try {
+                    stmt = conn.prepareStatement(SQL_UPDATE_PASS);
+                    stmt.setString(1, u[1]);
+                    stmt.setString(2, u[0]);
+                    stmt.executeUpdate();
+
+                } catch (SQLException e) {
+                    System.out.println("SQL Query Error");
+                }
+            }
+            else System.out.println("Login is not found!");
+        }
+        disconnect();
+    }
+
     public static void addNewUser(String regUser) {
         connect();
         String[] u = regUser.split("\t");
